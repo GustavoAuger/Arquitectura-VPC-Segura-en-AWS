@@ -22,7 +22,34 @@ module "subnets" {
   availability_zone  = var.aws_availability_zone
  /* name_prefix      = "subnet-M4-L5"*/ # nombre por defecto ya agregado dentro del modulo subnet
 }
-
+# Módulo IGW  
+module "igw" {
+  source      = "./modules/igw"
+  vpc_id      = module.vpc.vpc_id
+  name_prefix = "gateway-M4-L5"
+}
+# Módulo Route Table
+module "routes" {
+  source              = "./modules/routes"
+  vpc_id              = module.vpc.vpc_id
+  igw_id              = module.igw.igw_id
+  nat_gateway_id      = module.nat.nat_gateway_id
+  public_subnet_id    = module.subnets.public_subnet_id
+  private_subnet_id   = module.subnets.private_subnet_id
+  name_prefix         = "route-table-M4-L5"
+}
+# Módulo Elastic IP
+module "elastic_ip" {
+  source      = "./modules/elastic_ip"
+  name_prefix = "elastic-ip-M4-L5"
+}
+# Módulo NAT
+module "nat" {
+  source            = "./modules/nat"
+  public_subnet_id  = module.subnets.public_subnet_id
+  eip_allocation_id = module.elastic_ip.eip_allocation_id
+  name_prefix       = "nat-M4-L5"
+}
  /*
 # Módulo EC2
 module "ec2" {
