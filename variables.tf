@@ -16,10 +16,16 @@ variable "vpc_name" {
   default     = "vpc-M4-L5"
 }
 
-variable "subnet_cidr_block" {
-  description = "El bloque CIDR para la subred"
+variable "public_subnet_cidr" {
+  description = "El bloque CIDR para la subred pública"
   type        = string
   default     = "10.0.1.0/24"
+}
+
+variable "private_subnet_cidr" {
+  description = "El bloque CIDR para la subred privada"
+  type        = string
+  default     = "10.0.2.0/24"
 }
 
 variable "instance_type" {
@@ -27,3 +33,10 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+variable "aws_availability_zone" {
+  description = "La zona de disponibilidad AWS"
+  type        = string
+  default     = "us-east-1a"
+}
+  

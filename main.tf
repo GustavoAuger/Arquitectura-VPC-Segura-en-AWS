@@ -12,17 +12,18 @@ module "vpc" {
   region     = var.aws_region
   name       = var.vpc_name
 }
- /*
+
 # Módulo Subnet
-module "subnet" {
+module "subnets" {
   source             = "./modules/subnet"
   vpc_id             = module.vpc.vpc_id
-  subnet_cidr_block = var.subnet_cidr_block
-  region            = var.aws_region
+  public_subnet_cidr = var.public_subnet_cidr
+  private_subnet_cidr= var.private_subnet_cidr
+  availability_zone  = var.aws_availability_zone
+ /* name_prefix      = "subnet-M4-L5"*/ # nombre por defecto ya agregado dentro del modulo subnet
 }
 
-
-
+ /*
 # Módulo EC2
 module "ec2" {
   source       = "./modules/ec2"
