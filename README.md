@@ -31,6 +31,14 @@ A continuación se muestra la estructura del proyecto y las variables necesarias
 
 ```
 modules/
+├── elastic_ip/
+│   ├── main.tf
+│   ├── outputs.tf
+│   └── variables.tf
+├── nat/
+│   ├── main.tf
+│   ├── outputs.tf
+│   └── variables.tf
 ├── igw/
 │   ├── main.tf
 │   ├── outputs.tf
