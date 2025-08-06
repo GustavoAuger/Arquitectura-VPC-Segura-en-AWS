@@ -1,20 +1,31 @@
-/*variable "ami_id" {
-  description = "ID de la AMI"
-  type        = string
-} 
+variable "ami_id" {
+  type = string
+}
 
 variable "instance_type" {
-  description = "El tipo de instancia EC2"
-  type        = string
+  type = string
 }
 
-variable "subnet_id" {
-  description = "ID de la subred donde se lanzará la instancia EC2"
-  type        = string
+variable "public_subnet_id" {
+  type = string
 }
 
-variable "region" {
-  description = "La región de AWS"
-  type        = string
+variable "private_subnet_id" {
+  type = string
 }
-*/
+
+variable "public_sg_id" {
+  type = string
+}
+
+variable "private_sg_id" {
+  type = string
+}
+
+variable "key_name" {
+  type = string
+}
+
+variable "name_prefix" {
+  type = string
+}

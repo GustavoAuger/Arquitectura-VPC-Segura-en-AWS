@@ -50,13 +50,25 @@ module "nat" {
   eip_allocation_id = module.elastic_ip.eip_allocation_id
   name_prefix       = "nat-M4-L5"
 }
- /*
+# Módulo Security Group 
+
+module "security_group" {
+  source       = "./modules/security_group"
+  vpc_id       = module.vpc.vpc_id
+  name_prefix  = "M4-L5"
+  my_ip_cidr   = var.my_ip_cidr
+
+}
 # Módulo EC2
 module "ec2" {
-  source       = "./modules/ec2"
-  ami_id       = "ami-0ca9fb66e076a6e32"
-  instance_type = var.instance_type
-  subnet_id    = data.aws_subnet.vpc_subnets.id
-  region       = var.aws_region
+  source             = "./modules/ec2"
+  ami_id             = data.aws_ami.amazon_linux.id
+  instance_type      = var.instance_type
+  key_name           = var.key_name
+  public_subnet_id   = module.subnets.public_subnet_id
+  private_subnet_id  = module.subnets.private_subnet_id
+  public_sg_id       = module.security_group.public_sg_id
+  private_sg_id      = module.security_group.private_sg_id
+  name_prefix        = "M4-L5"
 }
- */
+

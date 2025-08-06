@@ -39,4 +39,11 @@ variable "aws_availability_zone" {
   type        = string
   default     = "us-east-1a"
 }
-  
+variable "key_name" {
+  description = "Nombre del par de claves SSH para acceso a EC2"
+  type        = string
+}
+variable "my_ip_cidr" {
+  description = "El bloque CIDR para la subred pública"
+  type        = string
+}

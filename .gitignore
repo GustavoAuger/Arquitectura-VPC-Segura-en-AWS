@@ -15,3 +15,8 @@
 # Logs y otros temporales
 *.log
 
+# Archivos de datos
+*.tfdata
+
+# Archivos de variables secretas
+*.auto.tfvars
