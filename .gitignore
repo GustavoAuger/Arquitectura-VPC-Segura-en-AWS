@@ -1,0 +1,17 @@
+# Archivos de estado de Terraform
+*.tfstate
+*.tfstate.backup
+
+# Variables de entorno o archivos de configuración local
+*.tfvars
+
+# Directorio oculto con backups
+.terraform/
+
+# Archivos locales del editor (por ejemplo VSCode, JetBrains)
+.vscode/
+.idea/
+
+# Logs y otros temporales
+*.log
+
