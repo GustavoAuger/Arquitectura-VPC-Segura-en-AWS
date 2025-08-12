@@ -121,17 +121,6 @@ bash
 ssh -i FINAL.pem ec2-user@<ip-privada>
 
 Prueba de conectividad a internet desde la privada:
-
-bash
-ssh -i FINAL.pem ec2-user@<ip-privada>
-
-Prueba de conectividad a internet desde la privada:
-
-bash
-ssh -i FINAL.pem ec2-user@<ip-privada>
-
-Prueba de conectividad a internet desde la privada:
-
 bash
 curl https://www.google.com
 
